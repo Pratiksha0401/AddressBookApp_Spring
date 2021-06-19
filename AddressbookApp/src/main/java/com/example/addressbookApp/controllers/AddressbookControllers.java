@@ -55,19 +55,17 @@ public class AddressbookControllers {
 	}
 	
 	/*curl -X PUT -H "Content-Type:application/json" -d '{"firstName":"Pratiksha","lastName":"Nagoshe","address":"Bhandara,MH"}'
-	 *  "http://localhost:8080/addressbook/update" -w "\n"
+	 *  "http://localhost:8080/addressbook/update/1" -w "\n"
 	 */
-	@PutMapping("/update")
-	public ResponseEntity<ResponseDTO> updateAddressbookData(@RequestBody AddressbookDTO addressbookDTO) {
+	@PutMapping("/update/{Id}")
+	public ResponseEntity<ResponseDTO> updateAddressbookData(@PathVariable("Id") int id,@RequestBody AddressbookDTO addressbookDTO) {
 		AddressbookData bookData = null;
-		bookData = addressbookservice.updateAddressbookData(addressbookDTO);
+		bookData = addressbookservice.updateAddressbookData(id,addressbookDTO);
 		ResponseDTO respDTO = new ResponseDTO("Updated Addressbook Data Successfully", bookData);
 		return new ResponseEntity<ResponseDTO>(respDTO, HttpStatus.OK);
 	}
 	
-	/* curl -X DELETE -H "Content-Type:application/json" -d '{"firstName":"Pratiksha","lastName":"Nagoshe","address":"Bhandara,MH"}' 
-	 * "http://localhost:8080/addressbook/delete/1" -w "\n"
-	 */
+	/* curl -X DELETE -H "Content-Type: application/json" localhost:8080/addressbook/delete/1 -w "\n" */
 	@DeleteMapping("/delete/{Id}")
 	public ResponseEntity<ResponseDTO> deleteAddressbookData(@PathVariable("Id") int id) {
 		addressbookservice.deleteAddressbookData(id);
