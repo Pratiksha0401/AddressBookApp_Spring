@@ -2,6 +2,8 @@ package com.example.addressbookApp.controllers;
 
 import java.util.List;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -47,7 +49,7 @@ public class AddressbookControllers {
 	/*  curl -X POST -H "Content-Type:application/json" -d '{"firstName":"Pratiksha","lastName":"Nagoshe","address":"Bhandara"}'
 	 *  "http://localhost:8080/addressbook/create" -w "\n" */
 	@PostMapping("/create")
-	public ResponseEntity<ResponseDTO> addAddressbookData(@RequestBody AddressbookDTO addressbookDTO) {
+	public ResponseEntity<ResponseDTO> addAddressbookData(@Valid @RequestBody AddressbookDTO addressbookDTO) {
 		AddressbookData bookData = null;
 		bookData = addressbookservice.createAddressbookData(addressbookDTO);
 		ResponseDTO respDTO = new ResponseDTO("Created Addressbook Data Successfully", bookData);
@@ -58,7 +60,8 @@ public class AddressbookControllers {
 	 *  "http://localhost:8080/addressbook/update/1" -w "\n"
 	 */
 	@PutMapping("/update/{Id}")
-	public ResponseEntity<ResponseDTO> updateAddressbookData(@PathVariable("Id") int id,@RequestBody AddressbookDTO addressbookDTO) {
+	public ResponseEntity<ResponseDTO> updateAddressbookData(@PathVariable("Id") int id,
+															 @Valid @RequestBody AddressbookDTO addressbookDTO) {
 		AddressbookData bookData = null;
 		bookData = addressbookservice.updateAddressbookData(id,addressbookDTO);
 		ResponseDTO respDTO = new ResponseDTO("Updated Addressbook Data Successfully", bookData);

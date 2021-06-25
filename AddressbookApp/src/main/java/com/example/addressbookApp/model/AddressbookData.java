@@ -11,14 +11,12 @@ import lombok.NoArgsConstructor;
 public class AddressbookData {
 	
 	private int id;
-	private String firstName;
-	private String lastName;
+	private String name;
 	private String address;
 	
 	public AddressbookData(int id, AddressbookDTO addressbookDTO) {
 		this.id = id;
-		this.firstName = addressbookDTO.firstName;
-		this.lastName = addressbookDTO.lastName;
+		this.name = addressbookDTO.name;
 		this.address = addressbookDTO.address;
 	}
 	
