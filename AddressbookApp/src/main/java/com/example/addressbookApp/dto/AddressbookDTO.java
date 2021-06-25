@@ -1,6 +1,5 @@
 package com.example.addressbookApp.dto;
 
-import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.Pattern;
 
 import lombok.AllArgsConstructor;
