@@ -6,6 +6,7 @@ import java.util.List;
 import org.springframework.stereotype.Service;
 
 import com.example.addressbookApp.dto.AddressbookDTO;
+import com.example.addressbookApp.exceptions.AddressBookException;
 import com.example.addressbookApp.model.AddressbookData;
 
 @Service
@@ -20,7 +21,10 @@ public class AddressbookService implements IAddessbookService{
 
 	@Override
 	public AddressbookData getAddressbookDataById(int id) {
-		return addressbookDataList.get(id-1);
+		return addressbookDataList.stream()
+								.filter(bookData -> bookData.getId()==id)
+								.findFirst()
+								.orElseThrow(() -> new AddressBookException("Person Not Found"));
 	}
 
 	@Override
@@ -41,7 +45,8 @@ public class AddressbookService implements IAddessbookService{
 	
 	@Override
 	public void deleteAddressbookData(int id) {
-		addressbookDataList.remove(id-1);
+		AddressbookData bookData = this.getAddressbookDataById(id);
+		addressbookDataList.remove(bookData);
 	}
 	
 }
