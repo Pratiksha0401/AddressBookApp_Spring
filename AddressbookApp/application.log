@@ -21,3 +21,6 @@
 2021-06-25 13:12:39.057  INFO 4940 --- [restartedMain] c.e.a.AddressbookAppApplication          : Starting AddressbookAppApplication using Java 11.0.10 on DESKTOP-T4PTG44 with PID 4940 (D:\Pratiksha\Spring_boot\AddressBook_App\AddressbookApp\target\classes started by Nagoshe in D:\Pratiksha\Spring_boot\AddressBook_App\AddressbookApp)
 2021-06-25 13:12:39.058 DEBUG 4940 --- [restartedMain] c.e.a.AddressbookAppApplication          : Running with Spring Boot v2.5.1, Spring v5.3.8
 2021-06-25 13:12:39.058  INFO 4940 --- [restartedMain] c.e.a.AddressbookAppApplication          : No active profile set, falling back to default profiles: default
+2021-06-25 13:12:39.621  WARN 4940 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2021-06-25 13:12:39.945  INFO 4940 --- [restartedMain] c.e.a.AddressbookAppApplication          : Started AddressbookAppApplication in 0.945 seconds (JVM running for 76.539)
+2021-06-25 13:12:39.949  INFO 4940 --- [restartedMain] c.e.a.AddressbookAppApplication          : Address Book App Started
