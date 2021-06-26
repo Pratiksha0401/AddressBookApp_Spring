@@ -28,7 +28,6 @@ public class AddressbookControllers {
 	@Autowired
 	private IAddessbookService addressbookservice;
 	
-	//curl "localhost:8080/addressbook/get" -w "\n"
 	@RequestMapping(value={" ", "/","/get"})
 	public ResponseEntity<ResponseDTO> getAddressbookData() {
 		List<AddressbookData> bookDataList = null;
@@ -37,7 +36,7 @@ public class AddressbookControllers {
 		return new ResponseEntity<ResponseDTO>(respDTO, HttpStatus.OK);
 	}
 		
-	//curl "localhost:8080/addressbook/get/1" -w "\n"
+
 	@GetMapping("/get/{Id}")
 	public ResponseEntity<ResponseDTO> getAddressbookDataById(@PathVariable("Id") int id){
 		AddressbookData bookData = null;
@@ -46,8 +45,7 @@ public class AddressbookControllers {
 		return new ResponseEntity<ResponseDTO>(respDTO, HttpStatus.OK);
 	}
 		
-	/*  curl -X POST -H "Content-Type:application/json" -d '{"firstName":"Pratiksha","lastName":"Nagoshe","address":"Bhandara"}'
-	 *  "http://localhost:8080/addressbook/create" -w "\n" */
+
 	@PostMapping("/create")
 	public ResponseEntity<ResponseDTO> addAddressbookData(@Valid @RequestBody AddressbookDTO addressbookDTO) {
 		AddressbookData bookData = null;
@@ -56,9 +54,7 @@ public class AddressbookControllers {
 		return new ResponseEntity<ResponseDTO>(respDTO, HttpStatus.OK);
 	}
 	
-	/*curl -X PUT -H "Content-Type:application/json" -d '{"firstName":"Pratiksha","lastName":"Nagoshe","address":"Bhandara,MH"}'
-	 *  "http://localhost:8080/addressbook/update/1" -w "\n"
-	 */
+
 	@PutMapping("/update/{Id}")
 	public ResponseEntity<ResponseDTO> updateAddressbookData(@PathVariable("Id") int id,
 															 @Valid @RequestBody AddressbookDTO addressbookDTO) {
@@ -68,7 +64,6 @@ public class AddressbookControllers {
 		return new ResponseEntity<ResponseDTO>(respDTO, HttpStatus.OK);
 	}
 	
-	/* curl -X DELETE -H "Content-Type: application/json" localhost:8080/addressbook/delete/1 -w "\n" */
 	@DeleteMapping("/delete/{Id}")
 	public ResponseEntity<ResponseDTO> deleteAddressbookData(@PathVariable("Id") int id) {
 		addressbookservice.deleteAddressbookData(id);
