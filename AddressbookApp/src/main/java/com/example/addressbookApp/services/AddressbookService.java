@@ -40,6 +40,10 @@ public class AddressbookService implements IAddessbookService{
 		AddressbookData bookData = this.getAddressbookDataById(id);
 		bookData.setName(bookDTO.name);
 		bookData.setAddress(bookDTO.address);
+		bookData.setCity(bookDTO.city);
+		bookData.setState(bookDTO.state);
+		bookData.setZipcode(bookDTO.zipcode);
+		bookData.setPhonenumber(bookDTO.phonenumber);
 		return addressbookDataList.set(id-1,bookData);
 	}
 	
