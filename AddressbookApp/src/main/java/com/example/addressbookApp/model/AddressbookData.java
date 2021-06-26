@@ -1,15 +1,24 @@
 package com.example.addressbookApp.model;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
 import com.example.addressbookApp.dto.AddressbookDTO;
 
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-
+@Entity
+@Table(name="addressbook_data")
 @Data
 @NoArgsConstructor
 public class AddressbookData {
 	
+	@Id
+	@GeneratedValue(strategy=GenerationType.AUTO)
 	private int id;
 	private String name;
 	private String address;
