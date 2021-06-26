@@ -1,6 +1,7 @@
 package com.example.addressbookApp.dto;
 
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
 
 import lombok.Data;
@@ -14,10 +15,13 @@ public class AddressbookDTO {
 	@NotBlank(message = "Address cannot be null")
 	public String address;
 	
+	@NotBlank(message = "City cannot be null")
 	public String city;
 	
+	@NotBlank(message = "State cannot be null")
 	public String state;
 	
+	@NotNull(message = "Zipcode cannot be null")
 	public int zipcode;
 	
 	@Pattern(regexp = "^[+]{0,1}[0-9]{2}\\s{0,1}[1-9]{1}[0-9]{9}$", message = "PhoneNumber Invalid")
