@@ -1,6 +1,5 @@
 package com.example.addressbookApp.services;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -52,6 +51,36 @@ public class AddressbookService implements IAddessbookService{
 	public void deleteAddressbookData(int id) {
 		AddressbookData bookData = this.getAddressbookDataById(id);
 		addressbookrepo.delete(bookData);
+	}
+
+	@Override
+	public long getCountById() {
+		return addressbookrepo.count();
+	}
+
+	@Override
+	public long getCountByState(String state) {
+		return addressbookrepo.countByState(state);
+	}
+
+	@Override
+	public long getCountByCity(String city) {
+		return addressbookrepo.countByCity(city);
+	}
+
+	@Override
+	public List<AddressbookData> getAddressbookDataByState(String state) {
+		return addressbookrepo.getAddressbookdataByState(state);
+	}
+
+	@Override
+	public List<AddressbookData> getAddressbookDataByCity(String city) {
+		return addressbookrepo.getAddressbookdataByCity(city);
+	}
+
+	@Override
+	public List<AddressbookData> getAddressbookDataByNameKeyword(String keyword) {
+		return addressbookrepo.getAddressbookdataByNameKeyword(keyword);
 	}
 	
 }
